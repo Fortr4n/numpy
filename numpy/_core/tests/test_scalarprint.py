@@ -241,7 +241,7 @@ class TestRealScalars:
         assert_equal(fpos64('324', unique=False, precision=5,
                                    fractional=False), "324.00")
 
-    available_float_dtypes = [np.float16, np.float32, np.float64, np.float128]\
+    available_float_dtypes = [np.float16, np.float32, np.float64, np.float128, np.float256]\
         if hasattr(np, 'float128') else [np.float16, np.float32, np.float64]
 
     @pytest.mark.parametrize("tp", available_float_dtypes)

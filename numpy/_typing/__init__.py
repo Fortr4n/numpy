@@ -126,6 +126,7 @@ from ._nbit_base import (
     _64Bit as _64Bit,
     _96Bit as _96Bit,
     _128Bit as _128Bit,
+    _256Bit as _256Bit,
 )
 
 #

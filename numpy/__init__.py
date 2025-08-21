@@ -447,7 +447,7 @@ else:
 
     # NOTE: It's still under discussion whether these aliases
     # should be removed.
-    for ta in ["float96", "float128", "complex192", "complex256"]:
+    for ta in ["float96", "float128", "float256", "complex192", "complex256", "complex512"]:
         try:
             globals()[ta] = getattr(_core, ta)
         except AttributeError:

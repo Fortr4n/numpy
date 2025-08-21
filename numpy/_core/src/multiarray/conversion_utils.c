@@ -1253,6 +1253,11 @@ PyArray_TypestrConvert(int itemsize, int gentype)
                     newtype = NPY_FLOAT128;
                     break;
 #endif
+#ifdef NPY_FLOAT256
+                case 32:
+                    newtype = NPY_FLOAT256;
+                    break;
+#endif
             }
             break;
 
@@ -1277,6 +1282,11 @@ PyArray_TypestrConvert(int itemsize, int gentype)
 #ifdef NPY_FLOAT128
                 case 32:
                     newtype = NPY_COMPLEX256;
+                    break;
+#endif
+#ifdef NPY_FLOAT256
+                case 64:
+                    newtype = NPY_COMPLEX512;
                     break;
 #endif
             }

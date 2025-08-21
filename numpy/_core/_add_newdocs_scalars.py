@@ -44,10 +44,12 @@ possible_aliases = numeric_type_aliases([
     ('float64', '64-bit precision floating-point number type: sign bit, 11 bits exponent, 52 bits mantissa'),
     ('float96', '96-bit extended-precision floating-point number type'),
     ('float128', '128-bit extended-precision floating-point number type'),
+    ('float256', '256-bit extended-precision floating-point number type'),
     ('complex64', 'Complex number type composed of 2 32-bit-precision floating-point numbers'),
     ('complex128', 'Complex number type composed of 2 64-bit-precision floating-point numbers'),
     ('complex192', 'Complex number type composed of 2 96-bit extended-precision floating-point numbers'),
     ('complex256', 'Complex number type composed of 2 128-bit extended-precision floating-point numbers'),
+    ('complex512', 'Complex number type composed of 2 256-bit extended-precision floating-point numbers'),
     ])
 
 

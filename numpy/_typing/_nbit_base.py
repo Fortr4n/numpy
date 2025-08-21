@@ -56,37 +56,53 @@ class NBitBase:
 
     def __init_subclass__(cls) -> None:
         allowed_names = {
-            "NBitBase", "_128Bit", "_96Bit", "_64Bit", "_32Bit", "_16Bit", "_8Bit"
+            "NBitBase", "_256Bit", "_128Bit", "_96Bit", "_64Bit", "_32Bit",
+            "_16Bit", "_8Bit"
         }
         if cls.__name__ not in allowed_names:
-            raise TypeError('cannot inherit from final class "NBitBase"')
+            raise TypeError(
+                'cannot inherit from final class "NBitBase"'
+            )
         super().__init_subclass__()
+
 
 @final
 @set_module("numpy._typing")
 # Silence errors about subclassing a `@final`-decorated class
-class _128Bit(NBitBase):  # type: ignore[misc]  # pyright: ignore[reportGeneralTypeIssues]
+class _256Bit(NBitBase):  # type: ignore[misc]  # pyright: ignore[reportGeneralTypeIssues]
     pass
+
+
+@final
+@set_module("numpy._typing")
+# Silence errors about subclassing a `@final`-decorated class
+class _128Bit(_256Bit):  # type: ignore[misc]  # pyright: ignore[reportGeneralTypeIssues]
+    pass
+
 
 @final
 @set_module("numpy._typing")
 class _96Bit(_128Bit):  # type: ignore[misc]  # pyright: ignore[reportGeneralTypeIssues]
     pass
 
+
 @final
 @set_module("numpy._typing")
 class _64Bit(_96Bit):  # type: ignore[misc]  # pyright: ignore[reportGeneralTypeIssues]
     pass
+
 
 @final
 @set_module("numpy._typing")
 class _32Bit(_64Bit):  # type: ignore[misc]  # pyright: ignore[reportGeneralTypeIssues]
     pass
 
+
 @final
 @set_module("numpy._typing")
 class _16Bit(_32Bit):  # type: ignore[misc]  # pyright: ignore[reportGeneralTypeIssues]
     pass
+
 
 @final
 @set_module("numpy._typing")

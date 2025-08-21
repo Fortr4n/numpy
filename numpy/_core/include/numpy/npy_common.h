@@ -835,6 +835,19 @@ typedef longdouble_t _Complex npy_clongdouble;
 #define NPY_FLOAT128_FMT NPY_DOUBLE_FMT
 #define NPY_COMPLEX256_FMT NPY_CDOUBLE_FMT
 #endif
+#elif NPY_BITSOF_DOUBLE == 256
+#ifndef NPY_FLOAT256
+#define NPY_FLOAT256 NPY_DOUBLE
+#define NPY_COMPLEX512 NPY_CDOUBLE
+        typedef double npy_float256;
+        typedef npy_cdouble npy_complex512;
+#    define PyFloat256ScalarObject PyDoubleScalarObject
+#    define PyComplex512ScalarObject PyCDoubleScalarObject
+#    define PyFloat256ArrType_Type PyDoubleArrType_Type
+#    define PyComplex512ArrType_Type PyCDoubleArrType_Type
+#define NPY_FLOAT256_FMT NPY_DOUBLE_FMT
+#define NPY_COMPLEX512_FMT NPY_CDOUBLE_FMT
+#endif
 #endif
 
 
@@ -903,6 +916,19 @@ typedef longdouble_t _Complex npy_clongdouble;
 #    define PyComplex256ArrType_Type PyCFloatArrType_Type
 #define NPY_FLOAT128_FMT NPY_FLOAT_FMT
 #define NPY_COMPLEX256_FMT NPY_CFLOAT_FMT
+#endif
+#elif NPY_BITSOF_FLOAT == 256
+#ifndef NPY_FLOAT256
+#define NPY_FLOAT256 NPY_FLOAT
+#define NPY_COMPLEX512 NPY_CFLOAT
+        typedef float npy_float256;
+        typedef npy_cfloat npy_complex512;
+#    define PyFloat256ScalarObject PyFloatScalarObject
+#    define PyComplex512ScalarObject PyCFloatScalarObject
+#    define PyFloat256ArrType_Type PyFloatArrType_Type
+#    define PyComplex512ArrType_Type PyCFloatArrType_Type
+#define NPY_FLOAT256_FMT NPY_FLOAT_FMT
+#define NPY_COMPLEX512_FMT NPY_CFLOAT_FMT
 #endif
 #endif
 
@@ -975,6 +1001,19 @@ typedef npy_half npy_float16;
 #    define PyComplex256ArrType_Type PyCLongDoubleArrType_Type
 #define NPY_FLOAT128_FMT NPY_LONGDOUBLE_FMT
 #define NPY_COMPLEX256_FMT NPY_CLONGDOUBLE_FMT
+#endif
+#elif NPY_BITSOF_LONGDOUBLE == 256
+#ifndef NPY_FLOAT256
+#define NPY_FLOAT256 NPY_LONGDOUBLE
+#define NPY_COMPLEX512 NPY_CLONGDOUBLE
+        typedef npy_longdouble npy_float256;
+        typedef npy_clongdouble npy_complex512;
+#    define PyFloat256ScalarObject PyLongDoubleScalarObject
+#    define PyComplex512ScalarObject PyCLongDoubleScalarObject
+#    define PyFloat256ArrType_Type PyLongDoubleArrType_Type
+#    define PyComplex512ArrType_Type PyCLongDoubleArrType_Type
+#define NPY_FLOAT256_FMT NPY_LONGDOUBLE_FMT
+#define NPY_COMPLEX512_FMT NPY_CLONGDOUBLE_FMT
 #endif
 #endif
 
